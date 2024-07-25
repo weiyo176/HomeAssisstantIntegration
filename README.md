@@ -20,7 +20,7 @@
 - node : v16 up
 ## Usage
 - clone repo
-  - git clone https://github.com/krixi0131/HomeAssisstantIntegration.git
+  - `git clone https://github.com/krixi0131/HomeAssisstantIntegration.git`
 - Create ssh tunnel (On Home Assistant Web Terminal)
   - `cd HaWebTunnelling`
   - `python3 main.py &`
