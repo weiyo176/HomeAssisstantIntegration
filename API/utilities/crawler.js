@@ -31,7 +31,6 @@ module.exports = {
         let result = {"suc" : true};
 
         if (search.method == "get") {	
-            result = {};
             result['key'] = await page.evaluate( () => Array.from( document.getElementsByTagName("home-assistant")[0].renderRoot.children[0].renderRoot.children[0].children[1].children[0].renderRoot.children[0].renderRoot.children[0].children[1].children[0].children[0].renderRoot.children[0].children[1].children[1].renderRoot.children[0].children[1].children, element => element.children[0].renderRoot.children[0].renderRoot.children[1].innerText) );
             result['val'] = await page.evaluate( () => Array.from( document.getElementsByTagName("home-assistant")[0].renderRoot.children[0].renderRoot.children[0].children[1].children[0].renderRoot.children[0].renderRoot.children[0].children[1].children[0].children[0].renderRoot.children[0].children[1].children[1].renderRoot.children[0].children[1].children, element => element.children[0].renderRoot.children[0].children[0].innerText) ); 
         }
@@ -72,7 +71,7 @@ module.exports = {
         console.log(elementHandle, elementHandle.length);
 
         // wait the page fully loaded
-        await this.sleep(7000);
+        await this.sleep(10000);
         let result = {"suc" : true};
 
         // debug
