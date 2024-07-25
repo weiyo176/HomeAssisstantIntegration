@@ -27,6 +27,7 @@
 - Create API Server
   - `cd API`
   - `node index.js`
+  - `node node_modules\puppeteer\install.mjs`
   - API Server is open on 127.0.0.1:8022
 ## Known issues
 - 有時候回傳資料錯誤是因為爬取網頁會不成功：可以嘗試把 crawler.js 的 await sleep 設久一點
