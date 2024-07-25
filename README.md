@@ -1,6 +1,8 @@
 # HomeAssisstant-Integration
 ## Intro
 - 建立並整合 Home Assisstant 部分功能，並提供前端需要顯示的資訊
+- 使用 Express 建立 API Server，前端只需呼叫 API 即可拿到 Home Assisstant 相關資料
+- API 格式須符合 Restful API
 ### API
 - note
   - 只要有關於會爬取 home assistant web 的資料的 API，大約會等 10s 
@@ -17,9 +19,15 @@
 - python3
 - node : v16 up
 ## Usage
+ - clone repo
+  - git clone https://github.com/krixi0131/HomeAssisstantIntegration.git
 - Create ssh tunnel (On Home Assistant Web Terminal)
   - `cd HaWebTunnelling`
   - `python3 main.py &`
 - Create API Server
   - `cd API`
   - `node index.js`
+  - API Server is open on 127.0.0.1:8022
+## Known issues
+- 有時候回傳資料錯誤是因為爬取網頁會不成功：可以嘗試把 crawler.js 的 await sleep 設久一點
+- 可以寫個 test script test API
