@@ -31,4 +31,13 @@
   - API Server is open on 127.0.0.1:8022
 ## Known issues
 - 有時候回傳資料錯誤是因為爬取網頁會不成功：可以嘗試把 crawler.js 的 await sleep 設久一點
+## Future Work
+- API
+  - 感應器歷史資料
+  - 設備歷史資料
 - 可以寫個 test script test API
+## 教學
+### 新增 API
+1. 到 `index.js` 新增 url route (可以參考 `index.js` 裡面的 `api/turn_gate` and `api/sensor`)
+2. 新增處理 request 的 js (可以參考 `api/turn_gate.js` and `api/sensor.js`)
+3. 針對新的資料去改寫 `utilities/crawler.js`，不同資料用爬蟲做到解析不同的網頁元素
