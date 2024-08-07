@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //express.json: 處理 JSON 資料
 app.use(express.json());
 app.use(cookieParser()); //解析 HTTP 請求的 cookie
+const cors = require('cors');
+app.use(cors({origin: true, credentials: true}));
+
 
 // routing
 // api
