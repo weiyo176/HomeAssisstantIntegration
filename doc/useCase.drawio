@@ -171,6 +171,54 @@
         <mxCell id="2fjG4QaXRf-Lk_SPFCAc-53" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
           <mxGeometry x="10" y="92" width="90" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-67" value="Tapo Component" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="349" y="155" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-68" value="Sync Devices&lt;div&gt;on the APP&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="501" y="150" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-69" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="2fjG4QaXRf-Lk_SPFCAc-46" source="2fjG4QaXRf-Lk_SPFCAc-67" target="2fjG4QaXRf-Lk_SPFCAc-68">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="359" y="190" as="sourcePoint" />
+            <mxPoint x="223" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-70" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="411" y="155" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-71" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="2fjG4QaXRf-Lk_SPFCAc-46" source="2fjG4QaXRf-Lk_SPFCAc-67">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="359" y="265" as="sourcePoint" />
+            <mxPoint x="191" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-72" value="&amp;lt;&amp;lt;exclude&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="240" y="150" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-73" value="Matter Component" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="353.5" y="220" width="70" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-74" value="Sync Devices&lt;div&gt;on the APP&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="505.5" y="215" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-75" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="2fjG4QaXRf-Lk_SPFCAc-46" source="2fjG4QaXRf-Lk_SPFCAc-73" target="2fjG4QaXRf-Lk_SPFCAc-74">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="363.5" y="255" as="sourcePoint" />
+            <mxPoint x="227.5" y="255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-76" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="415.5" y="220" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-77" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="2fjG4QaXRf-Lk_SPFCAc-46" source="2fjG4QaXRf-Lk_SPFCAc-73">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="363.5" y="330" as="sourcePoint" />
+            <mxPoint x="195.5" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2fjG4QaXRf-Lk_SPFCAc-78" value="&amp;lt;&amp;lt;exclude&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2fjG4QaXRf-Lk_SPFCAc-46">
+          <mxGeometry x="244.5" y="215" width="90" height="30" as="geometry" />
+        </mxCell>
         <mxCell id="2fjG4QaXRf-Lk_SPFCAc-48" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2fjG4QaXRf-Lk_SPFCAc-35" target="2fjG4QaXRf-Lk_SPFCAc-47">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="324" y="535" as="sourcePoint" />
