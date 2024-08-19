@@ -37,6 +37,7 @@ router.get('/', async function(req, res) {
             }
 
             const historyData = await historyResponse.json();
+            console.log(historyData);
             return { entity_id: entity.entity_id, history: historyData };
         });
 
