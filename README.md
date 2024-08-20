@@ -5,30 +5,27 @@
 - API 格式須符合 Restful API
 ### API
 - note
-  - 只要有關於會爬取 home assistant web 的資料的 API，大約會等 10s 
+  - 只要有關於會爬取 home assistant web 的資料的 API，大約會等 10s(現在沒有爬蟲了) 
+- GET `api/history_data`
+  - 回傳所有開關的設備的歷史資訊
+    ```
+    testAPI.py
+    ```
 - GET `api/turn_gate`
   - 回傳所有開關的設備的資訊
     ```
-    >>> import requests
-    >>> a = requests.get("http://localhost:8122/api/turn_gate")
-    >>> a.text
-    '{"suc":true,"val":["智慧插座 插座 1"]}'
+    testAPI.py
     ```
 - POST `api/turn_gate`
   - 開啟/關閉 所有開關的設備
     ```
-    >>> import requests
-    >>> res = requests.post("http://localhost:8122/api/turn_gate")
-    >>> res.text
-    '{"suc":true}'
+    testAPI.py
+    post設為on or off
     ```
 - GET `api/sensor`
   - 回傳所有 sensor 的資訊
     ```
-    >>> import requests
-    >>> a = requests.get("http://localhost:8122/api/sensor")
-    >>> a.text
-    '{"suc":true,"key":["溫度","濕度"],"val":["26.3 °C","63.0%"]}'
+    testAPI.py
     ```
 ## Prerequisite
 - python3
