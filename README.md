@@ -35,7 +35,7 @@
 	      'entity_id': ENTITY_ID
     }
 
-    response = requests.get(url)
+    response = requests.post(url, headers=headers, json=data)
     print(response.json())
     ```
 - GET `api/turn_gate`
