@@ -2,6 +2,27 @@ const router = require('express').Router();
 const crawler = require('./../utilities/crawler.js');
 // const fetch = require('node-fetch');
 // processing request
+const HOME_ASSISTANT_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTI2YzE0OTI2YzY0ZTBmYWQ5MGJhNDc1YjBkYTM2NiIsImlhdCI6MTcyMjI0MjAwNiwiZXhwIjoyMDM3NjAyMDA2fQ.DfwflG8zTXQOy5QCy_xn1QjPApSSgqKFV4bYNzpyAjY';
+const HA_URL = 'http://163.22.17.184:8123';
+
+// 或取特定設備的歷史資料
+async function getHistoryData(entityId) {
+    try {
+        const response = await fetch(`${HA_URL}/api/history/period?filter_entity_id=${entityId}`, {
+            headers: {
+                'Authorization': `Bearer ${HOME_ASSISTANT_TOKEN}`,
+                'Content-Type': 'application/json',
+            },
+        });
+        return await response.json();
+    }
+    catch (error) {
+        console.error('Failed to get history data:', error);
+        return [];
+    }
+}
+
+//取得所有設備的歷史資料
 router.get('/', async function(req, res) {
     try {
         const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTI2YzE0OTI2YzY0ZTBmYWQ5MGJhNDc1YjBkYTM2NiIsImlhdCI6MTcyMjI0MjAwNiwiZXhwIjoyMDM3NjAyMDA2fQ.DfwflG8zTXQOy5QCy_xn1QjPApSSgqKFV4bYNzpyAjY";
@@ -53,4 +74,20 @@ router.get('/', async function(req, res) {
     }
 });
 
+//取得特定設備的歷史資料
+router.post('/', async function(req, res) {
+    const { entity_id } = req.body;
+    console.log(req.body);
+    console.log(`Post input==>Entity ID: ${entity_id}`);
+    try {
+        const result = await getHistoryData(entity_id); 
+        console.log(result);       
+        res.json(result);
+    }
+    catch(e) {
+            const result = {"suc" : false, "msg" : "sth going wrong : " + e};
+            console.error(e);
+            res.json(result);
+    }   
+    });
 module.exports = router;

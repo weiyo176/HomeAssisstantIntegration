@@ -6,26 +6,120 @@
 ### API
 - note
   - 只要有關於會爬取 home assistant web 的資料的 API，大約會等 10s(現在沒有爬蟲了) 
+- testAPI.py
 - GET `api/history_data`
   - 回傳所有開關的設備的歷史資訊
     ```
-    testAPI.py
+    import requests
+
+    url = 'http://localhost:8122/api/history_data'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    response = requests.get(url)
+    print(response.json())
+    ```
+- POST `api/history_data`
+  - 回傳特定開關的設備的歷史資訊
+    ```
+    # entity_id:ENTITY_ID(替換成實體ID)
+    import requests
+
+    url = 'http://localhost:8122/api/history_data'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    data={
+	      'entity_id': ENTITY_ID
+    }
+
+    response = requests.get(url)
+    print(response.json())
     ```
 - GET `api/turn_gate`
   - 回傳所有開關的設備的資訊
     ```
-    testAPI.py
+    import requests
+
+    url = 'http://localhost:8122/api/turn_gate'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    response = requests.get(url)
+    print(response.json())
     ```
 - POST `api/turn_gate`
   - 開啟/關閉 所有開關的設備
     ```
-    testAPI.py
-    post設為on or off
+    # state:'on' or 'ofF'
+    # entity_id:'all' or ENTITY_ID(替換成實體ID)
+    url = 'http://localhost:8122/api/turn_gate'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    data={
+        'state': 'on',
+	      'entity_id': ENTITY_ID
+    }
+    
+    response = requests.post(url, headers=headers, json=data)
+    print(response.json())
     ```
 - GET `api/sensor`
   - 回傳所有 sensor 的資訊
     ```
-    testAPI.py
+    import requests
+
+    url = 'http://localhost:8122/api/sensor'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    response = requests.get(url)
+    print(response.json())
+    ```
+- POST `api/one_time_automation/switch`
+  - 在某個時間點開啟/關閉 
+    ```
+    # entity_id:ENTITY_ID
+    # state:'on' or 'ofF'
+    # triggerTime:'HH:MM:SS'
+    import requests
+    
+    url = 'http://localhost:8122/api/one_time_automation/switch'
+    headers = {
+	      'Content-Type': 'application/json'
+    }
+
+    data={
+        "entity_id": ENTITY_ID,
+	      "state": "off",
+	      "triggerTime": "17:00:00"
+    }
+    
+    response = requests.post(url, headers=headers, json=data)
+    print(response.json())
+    ```
+- POST `api/conversation`
+  - 使用HA助理 
+    ```
+    # chatText:對話內容
+    import requests
+
+    url = 'http://localhost:8122/api/conversation'
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    data={
+        'chatText': TEXT
+    }
+    
+    response = requests.post(url, headers=headers, json=data)
+    print(response.json())
     ```
 ## Prerequisite
 - python3
