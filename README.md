@@ -28,11 +28,11 @@
 
     url = 'http://localhost:8122/api/history_data'
     headers = {
-	      'Content-Type': 'application/json'
+	'Content-Type': 'application/json'
     }
 
     data={
-	      'entity_id': ENTITY_ID
+	'entity_id': ENTITY_ID
     }
 
     response = requests.post(url, headers=headers, json=data)
@@ -45,7 +45,7 @@
 
     url = 'http://localhost:8122/api/turn_gate'
     headers = {
-	      'Content-Type': 'application/json'
+	'Content-Type': 'application/json'
     }
 
     response = requests.get(url)
@@ -58,12 +58,12 @@
     # entity_id:'all' or ENTITY_ID(替換成實體ID)
     url = 'http://localhost:8122/api/turn_gate'
     headers = {
-	      'Content-Type': 'application/json'
+	'Content-Type': 'application/json'
     }
 
     data={
         'state': 'on',
-	      'entity_id': ENTITY_ID
+	'entity_id': ENTITY_ID
     }
     
     response = requests.post(url, headers=headers, json=data)
@@ -76,7 +76,7 @@
 
     url = 'http://localhost:8122/api/sensor'
     headers = {
-	      'Content-Type': 'application/json'
+	'Content-Type': 'application/json'
     }
 
     response = requests.get(url)
@@ -92,13 +92,13 @@
     
     url = 'http://localhost:8122/api/one_time_automation/switch'
     headers = {
-	      'Content-Type': 'application/json'
+	'Content-Type': 'application/json'
     }
 
     data={
         "entity_id": ENTITY_ID,
-	      "state": "off",
-	      "triggerTime": "17:00:00"
+	"state": "off",
+	"triggerTime": "17:00:00"
     }
     
     response = requests.post(url, headers=headers, json=data)
