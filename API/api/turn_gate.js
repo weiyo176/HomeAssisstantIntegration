@@ -4,6 +4,7 @@ const HOME_ASSISTANT_URL_getAllSwitchDevices = 'http://163.22.17.184:8123/api/st
 // const HOME_ASSISTANT_URL_turnOffAllDevices = 'http://163.22.17.184:8123/api/services/homeassistant/turn_off';
 const HOME_ASSISTANT_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI4OTI2YzE0OTI2YzY0ZTBmYWQ5MGJhNDc1YjBkYTM2NiIsImlhdCI6MTcyMjI0MjAwNiwiZXhwIjoyMDM3NjAyMDA2fQ.DfwflG8zTXQOy5QCy_xn1QjPApSSgqKFV4bYNzpyAjY';
 const HA_URL = 'http://163.22.17.184:8123';
+const fetch = require('cross-fetch');
 // 函數來獲取所有設備
 async function getAllDevices() {
     try {

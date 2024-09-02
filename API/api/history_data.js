@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const crawler = require('./../utilities/crawler.js');
+const fetch = require('cross-fetch');
 // const fetch = require('node-fetch');
 // processing request
 router.get('/', async function(req, res) {
