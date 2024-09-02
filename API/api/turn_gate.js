@@ -49,34 +49,59 @@ async function turnOnDevice(entityId) {
         });
       }
             
-// Function to turn off or on all devices based on state
-async function turnOfforOnAllDevices(state) {
+// 函數來開關設備
+async function turnOfforOnDevices(state, post_entity_id) {
     try {
-        const devices = await getAllDevices();
-        const controllableDevices = devices.filter(device => 
-        device.entity_id.startsWith('light.') || 
-        device.entity_id.startsWith('switch.') || 
-        device.entity_id.startsWith('climate.')
-        );
-        if (state === 'off') {
-            console.log('Turning off all devices...');
-            for (const device of controllableDevices) {
-                await turnOffDevice(device.entity_id);
-                console.log(`Turned off ${device.entity_id}`);
-                }
+        if (state !== 'on' && state !== 'off') {
+            throw new Error('Invalid state: ' + state);
+        }
+        if (state === 'toggle') {
+            console.log('Toggling a device...');
             
-            console.log('All devices have been turned off');
-            return { success: true };
-            // return await turnOffOrOnAllDevices();
-        } else if (state === 'on') {
-            console.log('Turning on all devices...');
-            for (const device of controllableDevices) {
-                await turnOnDevice(device.entity_id);
-                console.log(`Turned on ${device.entity_id}`);
+        }
+        if (post_entity_id === 'all'){
+            const devices = await getAllDevices();
+            const controllableDevices = devices.filter(device => 
+            device.entity_id.startsWith('light.') || 
+            device.entity_id.startsWith('switch.') || 
+            device.entity_id.startsWith('climate.')
+            );
+            if (state === 'off') {
+                console.log('Turning off all devices...');
+                for (const device of controllableDevices) {
+                    await turnOffDevice(device.entity_id);
+                    console.log(`Turned off ${device.entity_id}`);
+                    }
+                
+                console.log('All devices have been turned off');
+                return { success: true };
+                // return await turnOffOrOnAllDevices();
+            } 
+            else if (state === 'on') {
+                console.log('Turning on all devices...');
+                for (const device of controllableDevices) {
+                    await turnOnDevice(device.entity_id);
+                    console.log(`Turned on ${device.entity_id}`);
+                }
+                console.log('All devices have been turned on');
+                return { success: true };
             }
-            console.log('All devices have been turned on');
+        }
+        else if (state === 'off') {
+            console.log('Turning off a device...');
+            await turnOffDevice(post_entity_id);
+            console.log(`Turned off ${post_entity_id}`);
+            console.log('The device has been turned off');
             return { success: true };
-        } else {
+        }
+        else if (state === 'on') {
+            console.log('Turning on a device...');
+            await turnOnDevice(post_entity_id);
+            console.log(`Turned on ${post_entity_id}`);
+            console.log('The device has been turned on');
+            return { success: true };
+        } 
+        else {
             throw new Error('Invalid state: ' + state);
         }
     } catch (error) {
@@ -109,10 +134,11 @@ router.get('/', async function(req, res) {
 });
 
 router.post('/', async function(req, res) {
-    const { state } = req.body;
-    console.log('post input:', state);
+    const { state, entity_id } = req.body;
+    console.log(req.body);
+    console.log(`Post input==>State: ${state}, Entity ID: ${entity_id}`);
     try {
-        const result = await turnOfforOnAllDevices(state);        
+        const result = await turnOfforOnDevices(state, entity_id);        
         res.json(result);
 	// const search = {"type" : "turn_gate", "method" : "post"};
 	// const result = await crawler.crawlMapConsole('http://163.22.17.184:8123/lovelace/0', search);
