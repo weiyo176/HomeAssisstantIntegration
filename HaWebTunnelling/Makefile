@@ -10,7 +10,7 @@ init:
 	@mkdir -p $(SVC_DIR)
 
 .PHONY: install
-install: create_dir
+install: init
 	@echo "Installing service file: $(SVC_FILE)"
 	@ln -sf ./$(SVC_FILE) $(SVC_DIR)/$(SVC_FILE)
 	@systemctl --user daemon-reload
