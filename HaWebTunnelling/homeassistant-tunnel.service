@@ -1,0 +1,11 @@
+[Unit]
+Description=AutoSSH Tunnel for Home Assistant
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/autossh -M 20000 -o "ServerAliveInterval=60" -o "ServerAliveCountMax=3" -NR 0.0.0.0:8123:homeassistant.local:8123 tommygood@163.22.17.184
+Restart=always
+Environment="AUTOSSH_GATETIME=0"
+
+[Install]
+WantedBy=default.target
