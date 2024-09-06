@@ -1,9 +1,0 @@
-[Unit]
-Description=hit service
-After=network-online.target
-
-[Service]
-ExecStart=/root/.ssh/HaWebTunnelling.sh
-
-[Install]
-WantedBy=multi-user.target
