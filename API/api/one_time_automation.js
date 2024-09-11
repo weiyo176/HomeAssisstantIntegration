@@ -83,5 +83,56 @@ router.post('/switch', async function(req, res) {
         res.status(500).json({ success: false, message: "創建一次性自動化失敗: " + error.message });
     }
 });
+router.post('/light', async function(req, res) {
+    const { entity_id, state, triggerTime } = req.body;
+    //檢查triggerTime格式: HH:MM:SS
+    const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
+    if (!timeRegex.test(triggerTime)) {
+        return res.status(400).json({ success: false, message: "無效的時間格式" });
+    }
+
+    let Service;
+    if (state === 'on') {
+        Service = "light.turn_on";
+    } else if (state === 'off') {
+        Service = "light.turn_off";
+    } else {
+        return res.status(400).json({ success: false, message: "無效的狀態" });
+    }
+
+    const automationConfig = {
+        alias: "一次性控制燈泡",
+        description: `在指定時間${state === 'on' ? '打開' : '關閉'}插座`,
+        trigger: {
+            platform: "time",
+            at: triggerTime
+        },
+        action: [
+            {
+                service: Service,
+                target: {
+                    entity_id: entity_id
+                }
+            }
+        ],
+        mode: "single"
+    };
+
+    try {
+        const result = await createOneTimeAutomation(automationConfig);
+        res.json({ success: true, data: result });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "創建一次性自動化失敗: " + error.message });
+    }
+});
+//查詢所有自動化
+router.get('/', async function(req, res) {
+    try {
+        const response = await fetchWithAuth(`${HA_URL}/api/config/automation/config`);
+        res.json(response);
+    } catch (error) {
+        res.status(500).json({ success: false, message: "獲取自動化列表失敗: " + error.message });
+    }
+});
 
 module.exports = router;

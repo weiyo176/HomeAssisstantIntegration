@@ -133,6 +133,70 @@ router.get('/', async function(req, res) {
     }
 });
 
+router.get('/sensor', async function(req, res) {
+    try {
+		const devices = await getAllDevices();
+        const controllableDevices = devices.filter(device => 
+        device.entity_id.startsWith('sensor.')
+        );
+        console.log(controllableDevices);
+        res.json(controllableDevices);
+    }
+    catch(e) {
+	const result = {"suc" : false, "msg" : "sth going wrong : " + e};
+	console.error(e);
+	res.json(result);
+    }
+});
+
+router.get('/light', async function(req, res) {
+    try {
+		const devices = await getAllDevices();
+        const controllableDevices = devices.filter(device => 
+        device.entity_id.startsWith('light.')
+        );
+        console.log(controllableDevices);
+        res.json(controllableDevices);
+    }
+    catch(e) {
+	const result = {"suc" : false, "msg" : "sth going wrong : " + e};
+	console.error(e);
+	res.json(result);
+    }
+});
+
+router.get('/switch', async function(req, res) {
+    try {
+		const devices = await getAllDevices();
+        const controllableDevices = devices.filter(device => 
+        device.entity_id.startsWith('switch.')
+        );
+        console.log(controllableDevices);
+        res.json(controllableDevices);
+    }
+    catch(e) {
+	const result = {"suc" : false, "msg" : "sth going wrong : " + e};
+	console.error(e);
+	res.json(result);
+    }
+});
+
+router.get('/climate', async function(req, res) {
+    try {
+		const devices = await getAllDevices();
+        const controllableDevices = devices.filter(device => 
+        device.entity_id.startsWith('climate.')
+        );
+        console.log(controllableDevices);
+        res.json(controllableDevices);
+    }
+    catch(e) {
+	const result = {"suc" : false, "msg" : "sth going wrong : " + e};
+	console.error(e);
+	res.json(result);
+    }
+});
+
 router.post('/', async function(req, res) {
     const { state, entity_id } = req.body;
     console.log(req.body);
